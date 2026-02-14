@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentines 💖</title>
+
+    <style>
+        /* --- Fonts (Merged from valentines.css) --- */
+        /* cyrillic-ext */
+        @font-face {
+            font-family: 'Great Vibes';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/greatvibes/v21/RWmMoKWR9v4ksMfaWd_JN9XIiaQ6DQ.woff2) format('woff2');
+            unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+        }
+
+        /* cyrillic */
+        @font-face {
+            font-family: 'Great Vibes';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/greatvibes/v21/RWmMoKWR9v4ksMfaWd_JN9XBiaQ6DQ.woff2) format('woff2');
+            unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+        /* greek-ext */
+        @font-face {
+            font-family: 'Great Vibes';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/greatvibes/v21/RWmMoKWR9v4ksMfaWd_JN9XJiaQ6DQ.woff2) format('woff2');
+            unicode-range: U+1F00-1FFF;
+        }
+
+        /* vietnamese */
+        @font-face {
+            font-family: 'Great Vibes';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/greatvibes/v21/RWmMoKWR9v4ksMfaWd_JN9XKiaQ6DQ.woff2) format('woff2');
+            unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Great Vibes';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/greatvibes/v21/RWmMoKWR9v4ksMfaWd_JN9XLiaQ6DQ.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Great Vibes';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/greatvibes/v21/RWmMoKWR9v4ksMfaWd_JN9XFiaQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* devanagari */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 300;
+            src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z11lFc-K.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 300;
+            src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z1JlFc-K.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 300;
+            src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* devanagari */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJbecmNE.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJnecmNE.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* devanagari */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z11lFc-K.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8E0-A8FF, U+11B00-11B09;
+        }
+
+        /* latin-ext */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        /* latin */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            src: url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* --- Global & Reset --- */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            color: #d10069;
+            /* Dark Pink Text for Light Mode */
+            background: linear-gradient(135deg, #ffe6fa 0%, #ffcce6 100%);
+            /* Light Pink Gradient */
+        }
+
+        /* --- Background Video --- */
+        #bgVideo {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -3;
+            opacity: 0.3;
+            /* Low opacity to blend with gradient */
+            transition: opacity 1s ease-in-out;
+            display: none;
+            /* Hidden by default, shown if video source exists */
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.4);
+            /* Light overlay */
+            z-index: -2;
+        }
+
+        /* --- Animations (Roses & Hearts) --- */
+        .rose,
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        /* Roses: Fall down with sway */
+        .rose {
+            top: -10vh;
+            animation-name: fall, sway;
+            animation-timing-function: linear, ease-in-out;
+            animation-iteration-count: infinite, infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Hearts: Float up with sway */
+        .heart {
+            bottom: -10vh;
+            animation-name: floatUp, sway;
+            animation-timing-function: linear, ease-in-out;
+            animation-iteration-count: infinite, infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(10vh) scale(0.5);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-120vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes sway {
+
+            0%,
+            100% {
+                margin-left: 0;
+            }
+
+            50% {
+                margin-left: 50px;
+            }
+        }
+
+        /* --- Lock Screen --- */
+        .lock {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #ffd1dc, #ff9eb5);
+            /* Pink Gradient for Lock Screen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            transition: opacity 0.8s ease;
+        }
+
+        .lock-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            border: 2px solid white;
+        }
+
+        .lock-box h1 {
+            margin-top: 0;
+            color: #d10069;
+            text-shadow: none;
+            font-size: 2.5em;
+        }
+
+        input {
+            padding: 12px;
+            border-radius: 20px;
+            border: 2px solid #ff1493;
+            background: white;
+            color: #d10069;
+            width: 200px;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1.1em;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: rgba(209, 0, 105, 0.4);
+        }
+
+        /* --- General Button Style --- */
+        .btn {
+            margin-top: 20px;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.5);
+        }
+
+        /* --- Slides Container --- */
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: none;
+            /* Hidden until unlocked */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Each slide is hidden by default */
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1s ease;
+            position: absolute;
+            /* Stack them */
+            top: 0;
+            left: 0;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Cards --- */
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+            text-align: center;
+            position: relative;
+            border: 1px solid white;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            /* Scroll if content is too long */
+        }
+
+        .card h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.8em;
+            color: #d10069;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /* Custom scrollbar */
+        .card::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .card::-webkit-scrollbar-track {
+            background: #ffe6fa;
+            border-radius: 10px;
+        }
+
+        .card::-webkit-scrollbar-thumb {
+            background: #ff69b4;
+            border-radius: 10px;
+        }
+
+
+        .bunny-icon {
+            font-size: 5em;
+            display: block;
+            margin-top: -20px;
+            margin-bottom: 10px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .typing-container {
+            min-height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .typing {
+            color: #8b0046;
+            /* Darker pink for readability */
+            line-height: 1.9;
+            font-size: 1.15em;
+            white-space: pre-wrap;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Cursor logic per slide */
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: #ff1493;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+
+        /* --- Navigation Buttons (Bottom) --- */
+        .nav-controls {
+            margin-top: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: white;
+            color: #ff1493;
+            border: 2px solid #ff1493;
+            padding: 10px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 20, 147, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn.primary {
+            background: #ff1493;
+            color: white;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 20, 147, 0.4);
+        }
+
+        .nav-btn.primary:hover {
+            background: #d10069;
+            border-color: #d10069;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Password Lock -->
+    <div class="lock" id="lock">
+        <div class="lock-box">
+            <h1>For You Love 💖</h1>
+            <p>Enter the secret words</p>
+            <input type="password" id="pwd" placeholder="forever">
+            <br>
+            <button class="btn" onclick="checkPassword()">Enter ❤️</button>
+        </div>
+    </div>
+
+    <!-- Background Elements -->
+    <video id="bgVideo" autoplay muted loop playsinline>
+        <source src="" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <audio id="bgMusic" loop>
+        <source src="" type="audio/mpeg">
+    </audio>
+
+    <!-- Main Container -->
+    <div class="container" id="mainContainer">
+
+        <!-- Slide 1: Welcome -->
+        <div class="slide active" id="slide1">
+            <div class="card">
+                <div class="bunny-icon">🌹</div>
+                <div style="font-family: 'Great Vibes', cursive; font-size: 3.8em; color: #ff1493; margin: 10px 0;">
+                    Hello Beautiful! ❤️</div>
+                <p style="font-size: 1.2em; color: #666;">Hi Neema Muthoni Kaira, my Pretty Miss Independent.<br>I hope
+                    your day is as beautiful as its beholder...</p>
+
+                <div class="nav-controls">
+                    <button class="btn" onclick="nextSlide(2)">It will always be you! 🥰</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: The Letter -->
+        <div class="slide" id="slide2">
+            <div class="card">
+                <h1>To my queen Neema Muthoni Kaira 💖</h1>
+                <div class="typing-container">
+                    <div class="typing" id="typingText2"></div>
+                    <div class="cursor" id="cursor2"></div>
+                </div>
+
+                <div class="nav-controls">
+                    <button class="nav-btn" onclick="prevSlide(1)">← Back</button>
+                    <button class="nav-btn primary" onclick="nextSlide(3)">Next →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Reasons I Love You -->
+        <div class="slide" id="slide3">
+            <div class="card">
+                <h1>You Deserve The Best 💖</h1>
+                <div class="typing-container">
+                    <div class="typing" id="typingText3"></div>
+                    <div class="cursor" id="cursor3"></div>
+                </div>
+                <div class="nav-controls">
+                    <button class="nav-btn" onclick="prevSlide(2)">← Back</button>
+                    <button class="nav-btn primary" onclick="nextSlide(4)">Next →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Our Future -->
+        <div class="slide" id="slide4">
+            <div class="card">
+                <h1>Keeping My Word 💍</h1>
+                <div class="typing-container">
+                    <div class="typing" id="typingText4"></div>
+                    <div class="cursor" id="cursor4"></div>
+                </div>
+                <div class="nav-controls">
+                    <button class="nav-btn" onclick="prevSlide(3)">← Back</button>
+                    <button class="nav-btn primary" onclick="location.reload()">Replay 💖</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- Messages ---
+        const msgs = {
+            2: `Queen of My Heart 💖
+
+Happy Valentine’s Day 🥰🌹
+''''
+Ever since the first time I saw you you have been a constant existence in my life🥰 💘. The single most important goal I have had from back then and intend to keep decades to come. From the onset I have thought of you as a Queen deserving of the world. My goal has been to someday say this very words to you "I will give you the world" very well meaning them. That am still working on don't want to promise you empty words, you mean so much to me. I would never dream of taking you for granted.
+
+YOU'RE ALWAYS MY FIRST AND LAST LOVE 💕 😘 😘 FOREVER WILL LOVE YOU ❤️❣️🥰 💘
+🌹🌹😍🤩🌹#FOREVERYOURS❤️🥰😍🌹🌹`,
+
+            3: `Missy I would like to let you know that you are the love of my life and nothing is going to change this. My goal is still to cort you and someday wed you and nature a family together. There are lots of things I would like to do together like go traveling and work on our life goals together and many more.
+
+I still havent forgot my promise to someday massage you your feet when your from work, cook for you. I am looking forward to the previlage of someday taking care of all your needs during your lunar periods. You deserve the best and thats that am working towards. 💖`,
+
+            4: `Gorgeous like I said you truely deserve the best and I can't have you settling for less no matter what. That's why I have to first see my plans through, I don't want to keep leading you one and ignoring your advice. That would feel like taking you for granted. I have to see through this on my terms so I don't regret.
+
+The last time we candidly spoke you asked me a question "what does one do for another they truely love". Honestly speaking I am really selfish to have kept you waiting but I still feel like the best option is to complete work on this first since it would open more doors for the both of us and like I told you you are my first priority and you'll be the first to know.
+
+Yours faithfully Keyness Kebaya,
+Happy Valentines i know i have not lived up to the expectations but am still pushing I can't have you settle for less. LOVE YOU. ❤️`
+        };
+
+
+        // --- Configuration ---
+        const slides = [
+            { id: 1, bg: "bg1.mp4", song: "song1.mp3", init: null },
+            // Pass a wrapper function that calls startTyping with specific slide ID
+            { id: 2, bg: "bg2.mp4", song: "love.mp3", init: () => startTyping(2) },
+            { id: 3, bg: "bg3.mp4", song: "song3.mp3", init: () => startTyping(3) },
+            { id: 4, bg: "bg4.mp4", song: "song4.mp3", init: () => startTyping(4) }
+        ];
+
+        // --- State ---
+        let currentSlide = 1;
+        // Track typing status per slide to prevent restart
+        let typingStatus = { 2: false, 3: false, 4: false };
+
+        // --- Elements ---
+        const videoEl = document.getElementById('bgVideo');
+        const audioEl = document.getElementById('bgMusic');
+
+        // --- Functions ---
+
+        function checkPassword() {
+            const pwd = document.getElementById("pwd").value;
+            if (pwd.toLowerCase() === "forever") {
+                document.getElementById("lock").style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById("lock").style.display = 'none';
+                    document.getElementById("mainContainer").style.display = 'flex';
+                    loadSlide(1);
+                    createRosesHearts();
+                }, 800);
+            } else {
+                alert("Wrong password! Hint: It's what we are... 😉");
+            }
+        }
+
+        function loadSlide(slideId) {
+            const data = slides.find(s => s.id === slideId);
+            if (!data) return;
+
+            // Switch Slide
+            document.querySelectorAll('.slide').forEach(el => el.classList.remove('active'));
+            document.getElementById(`slide${slideId}`).classList.add('active');
+
+            // Switch Background
+            if (data.bg) {
+                videoEl.style.display = 'block';
+                if (!videoEl.src.includes(data.bg)) {
+                    videoEl.style.opacity = 0;
+                    setTimeout(() => {
+                        videoEl.src = data.bg;
+                        videoEl.play();
+                        videoEl.style.opacity = 0.3;
+                    }, 500);
+                }
+            } else {
+                videoEl.style.opacity = 0;
+                setTimeout(() => { videoEl.style.display = 'none'; }, 500);
+            }
+
+            // Switch Audio
+            if (data.song && !audioEl.src.includes(data.song)) {
+                audioEl.src = data.song;
+                audioEl.play().catch(e => console.log("Audio needed:", e));
+            }
+
+            // Init Function
+            if (data.init) data.init();
+            currentSlide = slideId;
+        }
+
+        function nextSlide(id) { loadSlide(id); }
+        function prevSlide(id) { loadSlide(id); }
+
+        // --- Typing Effect Factory ---
+        function startTyping(id) {
+            if (typingStatus[id]) return; // Already typed
+            typingStatus[id] = true;
+
+            const text = msgs[id];
+            const element = document.getElementById(`typingText${id}`);
+            const cursor = document.getElementById(`cursor${id}`);
+            let i = 0;
+
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 30); // Speed
+                } else {
+                    cursor.style.display = 'none';
+                }
+            }
+            type();
+        }
+
+        // --- Animations ---
+        function createRosesHearts() {
+            const body = document.body;
+            // More elements for fuller effect
+            for (let i = 0; i < 30; i++) {
+                const r = document.createElement("div");
+                r.className = "rose";
+                r.innerHTML = "🌹";
+                r.style.left = Math.random() * 100 + "vw";
+                r.style.fontSize = (20 + Math.random() * 20) + "px";
+                r.style.animationDuration = (8 + Math.random() * 5) + "s";
+                r.style.animationDelay = Math.random() * 5 + "s"; // Random delay for natural look
+                body.appendChild(r);
+            }
+
+            const hearts = ["❤️", "💕", "💖", "🌸", "🥰"];
+            for (let i = 0; i < 40; i++) {
+                const h = document.createElement("div");
+                h.className = "heart";
+                h.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                h.style.left = Math.random() * 100 + "vw";
+                h.style.fontSize = (15 + Math.random() * 25) + "px";
+                h.style.animationDuration = (10 + Math.random() * 8) + "s";
+                h.style.animationDelay = Math.random() * 5 + "s";
+                body.appendChild(h);
+            }
+        }
+    </script>
+</body>
+
+</html>
