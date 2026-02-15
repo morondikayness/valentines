@@ -159,27 +159,31 @@
             /* Light Pink Gradient */
         }
 
-        /* --- Background Video --- */
-        #bgVideo {
+        /* --- Background Video & Image --- */
+        #bgVideo,
+        #bgImage {
             position: fixed;
             inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
+            /* Ensure contents are centered */
             z-index: -3;
-            opacity: 0.3;
-            /* Low opacity to blend with gradient */
+            opacity: 1;
+            /* Fully opaque */
             transition: opacity 1s ease-in-out;
             display: none;
-            /* Hidden by default, shown if video source exists */
+            /* Hidden by default, shown if source exists */
         }
 
         .overlay {
             position: fixed;
             inset: 0;
-            background: rgba(255, 255, 255, 0.4);
-            /* Light overlay */
+            background: rgba(255, 255, 255, 0);
+            /* Transparent overlay */
             z-index: -2;
+            pointer-events: none;
         }
 
         /* --- Animations (Roses & Hearts) --- */
@@ -358,18 +362,31 @@
 
         /* --- Cards --- */
         .card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.4);
+            /* More transparent for visibility */
+            backdrop-filter: blur(1px);
+            -webkit-backdrop-filter: blur(1px);
             padding: 40px;
             border-radius: 30px;
             box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
             text-align: center;
             position: relative;
-            border: 1px solid white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             width: 90%;
             max-width: 800px;
             max-height: 80vh;
             overflow-y: auto;
             /* Scroll if content is too long */
+            opacity: 0;
+            /* Hidden initially */
+            transition: opacity 1s ease-in-out;
+            pointer-events: none;
+            /* Prevent clicks while hidden */
+        }
+
+        .slide.show-content .card {
+            opacity: 1;
+            pointer-events: auto;
         }
 
         .card h1 {
@@ -512,8 +529,9 @@
 
     <!-- Background Elements -->
     <video id="bgVideo" autoplay muted loop playsinline>
-        <source src="" type="video/mp4">
+        <source src="neema.mp4" type="video/mp4">
     </video>
+    <img id="bgImage" alt="">
     <div class="overlay"></div>
     <audio id="bgMusic" loop>
         <source src="" type="audio/mpeg">
@@ -528,7 +546,8 @@
                 <div class="bunny-icon">🌹</div>
                 <div style="font-family: 'Great Vibes', cursive; font-size: 3.8em; color: #ff1493; margin: 10px 0;">
                     Hello Beautiful! ❤️</div>
-                <p style="font-size: 1.2em; color: #666;">Hi Neema Muthoni Kaira, my Pretty Miss Independent.<br>I hope
+                <p style="font-size: 1.5em; color: hsl(108, 92%, 33%);">Hi Neema Muthoni Kaira, my Pretty Miss
+                    Independent.<br>I hope
                     your day is as beautiful as its beholder...</p>
 
                 <div class="nav-controls">
@@ -612,20 +631,19 @@ Happy Valentines i know i have not lived up to the expectations but am still pus
 
         // --- Configuration ---
         const slides = [
-            { id: 1, bg: "bg1.mp4", song: "song1.mp3", init: null },
-            // Pass a wrapper function that calls startTyping with specific slide ID
-            { id: 2, bg: "bg2.mp4", song: "love.mp3", init: () => startTyping(2) },
-            { id: 3, bg: "bg3.mp4", song: "song3.mp3", init: () => startTyping(3) },
-            { id: 4, bg: "bg4.mp4", song: "song4.mp3", init: () => startTyping(4) }
+            { id: 1, type: "video", bg: "neema.mp4", song: "song1.mp3", init: null },
+            { id: 2, type: "image", bg: "neema3.jpg", song: "love.mp3", init: () => startTyping(2) },
+            { id: 3, type: "image", bg: "neema4.jpg", song: "song3.mp3", init: () => startTyping(3) },
+            { id: 4, type: "video", bg: "neema5.mp4", song: "song4.mp3", init: () => startTyping(4) }
         ];
 
         // --- State ---
         let currentSlide = 1;
-        // Track typing status per slide to prevent restart
-        let typingStatus = { 2: false, 3: false, 4: false };
+        let slideTimeout = null; // Store timeout ID to clear on slide switch
 
         // --- Elements ---
         const videoEl = document.getElementById('bgVideo');
+        const imageEl = document.getElementById('bgImage');
         const audioEl = document.getElementById('bgMusic');
 
         // --- Functions ---
@@ -649,24 +667,51 @@ Happy Valentines i know i have not lived up to the expectations but am still pus
             const data = slides.find(s => s.id === slideId);
             if (!data) return;
 
+            // Clear any pending timeout from previous slide
+            if (slideTimeout) clearTimeout(slideTimeout);
+
             // Switch Slide
-            document.querySelectorAll('.slide').forEach(el => el.classList.remove('active'));
-            document.getElementById(`slide${slideId}`).classList.add('active');
+            document.querySelectorAll('.slide').forEach(el => {
+                el.classList.remove('active');
+                el.classList.remove('show-content'); // Reset visibility
+            });
+            const newSlide = document.getElementById(`slide${slideId}`);
+            newSlide.classList.add('active');
 
             // Switch Background
-            if (data.bg) {
+            if (data.type === "video") {
+                // Fade out image
+                imageEl.style.opacity = 0;
+                setTimeout(() => { imageEl.style.display = 'none'; }, 500);
+
+                // Fade in video
                 videoEl.style.display = 'block';
                 if (!videoEl.src.includes(data.bg)) {
                     videoEl.style.opacity = 0;
                     setTimeout(() => {
                         videoEl.src = data.bg;
                         videoEl.play();
-                        videoEl.style.opacity = 0.3;
+                        videoEl.style.opacity = 1;
                     }, 500);
+                } else {
+                    videoEl.style.opacity = 1;
                 }
-            } else {
+            } else if (data.type === "image") {
+                // Fade out video
                 videoEl.style.opacity = 0;
                 setTimeout(() => { videoEl.style.display = 'none'; }, 500);
+
+                // Fade in image
+                imageEl.style.display = 'block';
+                if (!imageEl.src.includes(data.bg)) {
+                    imageEl.style.opacity = 0;
+                    setTimeout(() => {
+                        imageEl.src = data.bg;
+                        imageEl.style.opacity = 1;
+                    }, 500);
+                } else {
+                    imageEl.style.opacity = 1;
+                }
             }
 
             // Switch Audio
@@ -675,8 +720,13 @@ Happy Valentines i know i have not lived up to the expectations but am still pus
                 audioEl.play().catch(e => console.log("Audio needed:", e));
             }
 
-            // Init Function
-            if (data.init) data.init();
+            // Delayed Content Appearance (3 seconds)
+            slideTimeout = setTimeout(() => {
+                newSlide.classList.add('show-content');
+                // Init Function (Typing)
+                if (data.init) data.init();
+            }, 3000);
+
             currentSlide = slideId;
         }
 
@@ -685,15 +735,20 @@ Happy Valentines i know i have not lived up to the expectations but am still pus
 
         // --- Typing Effect Factory ---
         function startTyping(id) {
-            if (typingStatus[id]) return; // Already typed
-            typingStatus[id] = true;
-
             const text = msgs[id];
             const element = document.getElementById(`typingText${id}`);
             const cursor = document.getElementById(`cursor${id}`);
+
+            // Clear prior content
+            element.textContent = "";
+            cursor.style.display = 'inline-block';
+
             let i = 0;
 
             function type() {
+                // Check if we are still on the slide that started typing
+                if (currentSlide !== id) return;
+
                 if (i < text.length) {
                     element.textContent += text.charAt(i);
                     i++;
